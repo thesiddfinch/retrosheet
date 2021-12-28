@@ -1,0 +1,27 @@
+--
+-- RUNNING TIME: 5 SECONDS
+--
+DROP TABLE IF EXISTS GAMES_SCORE;
+
+CREATE TABLE games_score AS
+SELECT game_id ,
+       away_team_id as team_id,
+       home_team_id as opp_team_id ,
+       0 as home_id ,
+       away_score_ct as score_ct,
+       home_score_ct as opp_score_ct ,
+       case when away_score_ct > home_score_ct then 1
+            when away_score_ct < home_score_ct then -1
+            else 0 end as winloss_fl
+FROM	games
+UNION all
+SELECT	game_id ,
+       home_team_id as team_id,
+       home_team_id as opp_team_id ,
+       1 as home_id ,
+       home_score_ct as score_ct,
+       away_score_ct as opp_score_ct ,
+       case when home_score_ct > away_score_ct then 1
+            when home_score_ct < away_score_ct then -1
+            else 0 end as winloss_fl
+FROM	games;

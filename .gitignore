@@ -4,3 +4,10 @@ __pycache__
 __pycache__/
 eventfiles
 eventfiles/
+venv
+venv/
+csv/
+csv
+*.log
+temp/
+db/
