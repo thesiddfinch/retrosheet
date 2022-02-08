@@ -3,8 +3,12 @@ import re
 
 base_url = "https://retrosheet.org/events/"
 start_decade = 1910
-eventfiles = path.join(getcwd(), "eventfiles")
+#eventfiles = path.join(getcwd(), "eventfiles")
+eventfiles = path.join(getcwd(),"../chadwick-retrosheet/event/regular")
 csvfiles = path.join(getcwd(), "csv")
+dbdir = path.join(getcwd(),"db")
+dbname = "retrosheet.db"
+sqldir = path.join(getcwd(),"sql")
 
 chadwick = path.join(environ['HOME'], "chadwick")
 game = path.join(chadwick, "bin", "cwgame")
@@ -25,7 +29,6 @@ roster_re = re.compile('(\\w{3})(\\d{4}).ROS')
 # 2009CLE.EVA
 event_re = re.compile('(\\d{4})(\\w{3}).EV[AN]')
 
-
 def make_sure_path_is_present_and_a_dir_p(directory):
     """
     make sure path is present and a directory
@@ -45,3 +48,7 @@ def make_sure_path_is_present_and_a_dir_p(directory):
         # print(traceback.format_exc())
         return False
     return True
+
+for directory in eventfiles, csvfiles, dbdir:
+    make_sure_path_is_present_and_a_dir_p(directory)
+
