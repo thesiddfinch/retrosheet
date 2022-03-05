@@ -2,6 +2,8 @@
 *.pyc
 __pycache__
 __pycache__/
+release
+release/
 eventfiles
 eventfiles/
 chadwick

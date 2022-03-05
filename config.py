@@ -3,8 +3,8 @@ import re
 
 base_url = "https://retrosheet.org/events/"
 start_decade = 1910
-#eventfiles = path.join(getcwd(), "eventfiles")
-eventfiles = path.join(getcwd(),"../chadwick-retrosheet/event/regular")
+eventfiles = path.join(getcwd(), "eventfiles")
+#eventfiles = path.join(getcwd(),"../chadwick-retrosheet/event/regular")
 csvfiles = path.join(getcwd(), "csv")
 dbdir = path.join(getcwd(),"db")
 dbname = "retrosheet.db"
